@@ -1,0 +1,14 @@
+<div style="background-color: <%= @site.background_color %>; color: <%= @site.primary_color %>;">
+  <h1><%= @site.name %></h1>
+  <p><%= @site.subdomain %></p>
+</div>
+
+<%= @site.members.map {|m| m["email"]} %>
+
+
+<%= button_to "Login", "/auth/auth0", method: :post, params: {
+  organization: @site.auth0_org_id,
+  redirect_uri: auth_auth0_callback_url(subdomain: @site.subdomain),
+}, data: { turbo: false } %>
+
+<%= link_to "Logout", "/auth/logout", data: { turbo: false } %>

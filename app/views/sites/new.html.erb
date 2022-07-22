@@ -1,0 +1,13 @@
+<form action="/sites" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <input type="text" name="site[subdomain]" placeholder="www">
+
+  <input type="text" name="site[name]" placeholder="Name">
+
+  <input type="color" name="site[background_color]" placeholder="#fff">
+
+  <input type="color" name="site[primary_color]" placeholder="#fff">
+
+  <button>Create Site</button>
+</form>
